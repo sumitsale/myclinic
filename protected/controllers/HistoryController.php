@@ -36,7 +36,7 @@ class HistoryController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','unpaid'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -395,6 +395,29 @@ $referral = Yii::app()->db->createCommand()
 			'patientModel' => $this->loadPatientModel($id),
 			'paidpatientReferral' => $paidpatientReferral,
 			'unpaidpatientReferral' => $unpaidpatientReferral
+		));
+	}
+
+	public function actionUnpaid()
+	{
+
+
+		$model1=new PatientReferral('search');
+		$model1->unsetAttributes();  // clear any default values
+		if(isset($_GET['PatientReferral']))
+			$model1->attributes=$_GET['PatientReferral'];
+
+
+
+		$model=new History('search');
+
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['History']))
+			$model->attributes=$_GET['History'];
+
+		$this->render('unpaidadmin',array(
+			'model'=>$model,
+			'model1'=>$model1
 		));
 	}
 

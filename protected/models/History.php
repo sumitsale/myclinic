@@ -89,7 +89,7 @@ class History extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search($patient_id)
+	public function search($patient_id,$unpaid='')
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
@@ -110,7 +110,13 @@ class History extends CActiveRecord
 		$criteria->compare('lab_test',$this->lab_test);
 		$criteria->compare('x_ray',$this->x_ray);
 		$criteria->compare('fees',$this->fees);
-		$criteria->compare('unpaid',$this->unpaid);
+
+		if($unpaid !=''){
+			$criteria->compare('NOT unpaid',0);			
+		} else {
+			$criteria->compare('unpaid',$this->unpaid);
+		}
+
 		$criteria->compare('session',$this->session);
 		$criteria->compare('referral',$this->referral);
 		$criteria->compare('date_added',$this->date_added,true);

@@ -34,6 +34,7 @@
 				array('label'=>'Medicine', 'url'=>array('/Medicine/admin')),
 				array('label'=>'Referral', 'url'=>array('/Referral/admin')),
 				array('label'=>'Revenue', 'url'=>array('/Revenue/index')),
+				array('label'=>'Unpaid', 'url'=>array('/History/unpaid')),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

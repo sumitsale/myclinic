@@ -26,8 +26,6 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-
-
 <h1>Patients #<?php echo $model->id; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
@@ -115,16 +113,6 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 <?php
 /* @var $this PatientReferralController */
 /* @var $model PatientReferral */
-
-$this->breadcrumbs=array(
-	'Patient Referrals'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List PatientReferral', 'url'=>array('index')),
-	array('label'=>'Create PatientReferral', 'url'=>array('create')),
-);
 
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
