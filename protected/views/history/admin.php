@@ -132,7 +132,7 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'patient-referral-grid',
-	'dataProvider'=>$unpaidpatientReferral->search('Unpaid'),
+	'dataProvider'=>$unpaidpatientReferral->search('Unpaid', $model->id),
 	'filter'=>$unpaidpatientReferral,
 	'columns'=>array(
 		//'id',
@@ -212,7 +212,7 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'patient-referral-grid',
-	'dataProvider'=>$paidpatientReferral->search('paid'),
+	'dataProvider'=>$paidpatientReferral->search('paid', $model->id),
 	'filter'=>$paidpatientReferral,
 	'columns'=>array(
 		//'id',

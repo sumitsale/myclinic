@@ -80,19 +80,25 @@ class PatientReferral extends CActiveRecord
 	 * @return CActiveDataProvider the data provider that can return the models
 	 * based on the search/filter conditions.
 	 */
-	public function search($status)
+	public function search($status, $patient_id='')
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('patient_id',$this->patient_id);
+	//	$criteria->compare('patient_id',$this->patient_id);
+
+		if($patient_id !='') {
+			$criteria->compare('patient_id',$patient_id);
+		}		
+
 		$criteria->compare('history_id',$this->history_id);
 		$criteria->compare('referral_id',$this->referral_id);
 		//$criteria->compare('status',$this->status,true);
-		
 
+
+		
 		if($status !='') {
 			$criteria->compare('status',$status);
 		}
